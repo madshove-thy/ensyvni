@@ -1,0 +1,297 @@
+---
+title: "Ensyvni -- valgkampen i tal"
+author: "@MadsHoveThy  --  mhove@sam.sdu.dk"
+date: "`r format(Sys.time(), '%d %B, %Y, %X')`"
+output: 
+  rmdformats::readthedown
+    # toc: true
+    # toc_depth: 2
+    # toc_float: true
+featuredImage: "public/thumbnail.png"
+---
+
+<script async src="//static.getclicky.com/101383728.js"></script>
+<noscript><p><img alt="Clicky" width="1" height="1" src="//in.getclicky.com/101383728ns.gif" /></p></noscript>
+
+```{css, echo = FALSE}
+#content{
+    max-width:1620px;
+}
+```
+
+<!-- <style type="text/css"> -->
+<!-- .main-container { -->
+<!--   max-width: 1800px !important; -->
+<!--   margin-left: auto; -->
+<!--   margin-right: auto; -->
+<!-- } -->
+<!-- </style> -->
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+
+# source("/Users/Madshove/OneDrive/Mads/golem/ensyvni/code/32_dagens_udv.R")
+source("/Users/Madshove/OneDrive/Mads/golem/ensyvni/code/33_targeting.R")
+source("/Users/Madshove/OneDrive/Mads/golem/ensyvni/code/34_issues.R")
+source("/Users/Madshove/OneDrive/Mads/golem/ensyvni/code/36_MF_table.R")
+source("/Users/Madshove/OneDrive/Mads/golem/ensyvni/code/37_candidate_table.R")
+source("/Users/Madshove/OneDrive/Mads/golem/ensyvni/code/38_detailed_targeting.R")
+```
+
+# Ensyvni
+
+Snart skal vælgerne i Kongeriget Danmark bestemme, hvilke 179 personer, der skal sidde i Folketinget den kommende valgperiode. Med det kommer partierne og politikernes kampagne for at vinde vælgernes gunst. På denne side kan du følge med i *hvad partierne gør på sociale medier, hvilke budskaber de sender og hvem de målretter dem*. Alt sammen bygget på data fra de annoncer og opslag politikerne laver på sociale medier -- pakket ind i interaktive visualiseringer.
+
+<!-- Det betyder også, at partier og politikere skal ud og kæmpe om vælgernes gunst. Partierne skal have rykket vælgere væk fra de andre og over til sig. Og kandidaterne skal gøre sit for at de kan møve sig øverst på listen, når de personlige stemmer er talt op. De kampe udkæmpes i moderne valgkampe i særdeleshed på sociale medier og du kan her på siden følge med i, hvad der sker og hvem der gør hvad. -->
+
+Fordelt på syv sektioner kan du her på siden se og læse om:
+
+* **Forbrug på annoncer:** Her finder du, hvor mange penge partierne bruger på annoncer. Sektionen skelner mellem tre platforme: Meta, Google og Snapchat. Meta indeholder forbrug på annoncer på Facebook, Instagram, WhatsApp og Messenger, mens Google indeholder forbrug på annoncer på Google og YouTube.
+* **Annoncernes eksponering:** Her finder du information om, hvilke demografiske grupper, der eksponeres for partiernes annoncer. Eksponeringen er delt ned i tre dele: geografi, alder og køn.
+* **Valgkampens temaer: ** Her finder du, hvilke emner partiernes annoncer handler om, hvad de generelt skriver om og hvordan det udvikler sig over tid.
+* **MF'ernes kampagner: ** Her finder du tabeller, der opsummerer alle folketingsmedlemmers kampagne på sociale medier. Først en tabel, der opsummerer hvor mange penge de bruger på annoncer og hvordan de målrettes. Dernæst en tabel over, hvilke reaktioner og interaktioner de har fået på deres Facebook-opslag den seneste uge.
+* **Kandidaters kampagner: ** Her finder du en tabel, der opsummerer folketingskandidater, som endnu ikke er medlem af Folketinget, brug og målretning af annoncer.
+* **Deltaljeret målretning: ** Her finder du information om, hvordan partierne målretter deres annoncer ved at se på, hvilke interesser, lokationer og aldre partierne inkluderer eller ekskluderer i deres annonceopsætning.
+* **Afgrænsning og metodik: ** Det kedelige kan også være sjovt. Her kan du bl.a. læse om, hvordan data er afgrænset, indsamlet og behandlet.
+
+Tabeller og figurer opdateres dagligt og du kan se nederst i venstre hjørne, hvornår sidste opdatering har fundet sted. Har du spørgsmål, kommentarer eller anbefalinger til yderligere visualiseringer er du altid velkommen til at kontakte mig på mhove@sam.sdu.dk eller telefon +45 2362 3473. Du kan også fange mig på Twitter @MadsHoveThy, hvor jeg ligeledes vil give opdateringer under valgkampen.
+
+Siden og den bagvedliggende data indgår i et projekt på Digital Democracy Centre på Syddansk Universitet om *microtargeting* af vælgere i danske valgkampe. Følg @DDC_SDU og @MadsHoveThy på Twitter for at følge med.
+
+God læselyst!
+
+<br>
+<br>
+
+# Forbrug på annoncer
+
+I denne sektion kan du se, hvor mange penge partierne har brugt på annoncer på hhv. Metas platforme (Facebook, Instagram, WhatsApp, Messenger), Googles platforme (Google, YouTube) og Snapchat siden 1. august 2022. 
+<!-- Derudover kan du også se, hvor mange annoncer partierne har indrykket på platformene. -->
+
+<br>
+
+## Annoncer på Metas platforme
+
+Herunder kan du se, hvor mange penge partierne akkumuleret har brugt på at annoncere på Metas platforme siden 1. august 2022. Forbruget opgøres således at pengene tæller *den dag annoncen er sat i gang*. Forbruget kan således være højere eller lavere end det faktiske på dagen, hvis eksempel én dyr annonce sættes i gang en dag med lang levetid. Klik på partierne under visualiseringen, hvis du ønsker at skjule dem.
+
+```{r forbrugPARTImeta}
+Money_day_plotly
+```
+
+<!-- Der er variation i, hvor mange annoncer partierne spreder deres annoncekroner ud over. Herunder kan du se, hvor mange annoncer partierne har indrykket på Metas platforme siden 1. august 2022. Man skal imidlertid nødt til at være opmærksom på, at hvis et parti indrykker flere annoncer, kan det godt indebærer at de kører med samme tekst og budskab men forskellige målgrupper. I visualiseringen herunder opereres med antal *unikke* annoncer, defineret som at annoncer med samme tekst, fra samme parti på samme dag tælles som én annonce. Der er derfor ikke en en-til-en korrespondance mellem antal *unikke* annoncer og det antal annoncer Meta oplyser os om. -->
+
+<!-- ```{r antalPARTImeta} -->
+<!-- ad_day_plotly -->
+<!-- ``` -->
+
+<br>
+
+## Annoncer på Googles platforme
+
+Herunder kan du se, hvor mange penge partierne akkumuleret har brugt på at annoncere på Googles platforme (Google, Youtube) siden 1. august 2022. Forbruget opgøres således at pengene tæller *den dag annoncen er sat i gang*. Klik på partierne under visualiseringen, hvis du ønsker at skjule dem. Fremgår partiet ikke, så har partiet ikke nogen annoncer på Google i den registrerede periode.
+
+```{r forbrugPARTIgoogle}
+Money_day_google_plotly
+```
+
+<!-- Der er variation i, hvor mange annoncer partierne spreder deres annoncekroner ud over. Herunder kan du se, hvor mange annoncer partierne har indrykket på Googles platforme siden 1. august 2022. -->
+
+<!-- ```{r antalPARTIgoogle} -->
+<!-- ad_day_google_plotly -->
+<!-- ``` -->
+
+<br>
+
+## Annoncer på Snapchat
+
+Herunder kan du se, hvor mange penge partierne akkumuleret har brugt på at annoncere på Snapchat siden 1. august 2022. Forbruget opgøres således at pengene tæller *den dag annoncen er sat i gang*. Barplot vælges i dette tilfælde, da der næsten ingen tidslig variation er pga. få annoncer. Fremgår partiet ikke, så har partiet ikke nogen annoncer på Snapchat i den registrerede periode.
+
+```{r forbrugPARTIsnap}
+ad_total_snapchat_plotly
+```
+
+<br>
+<br>
+
+# Annoncernes eksponering
+
+Når partierne opretter annoncer på sociale medier har de mulighed for at påvirke *hvem* der skal se den specifikke annonce. Det kan være, at de udelukkende er interesseret i vælgere i en specifik landsdel eller at de målretter annoncen til vælgere med specifikke interesser. Eksempelvis kan en annonce indstilles til alene at blive vist til Facebook-brugere, der har en videregående uddannelse eller til de, der på Facebook synes godt Volkswagen. På den måde kan annoncer målrettes, så de *rigtige vælgere eksponeres for de rigtige budskaber*.
+
+Når partierne og politikerne annoncerer offentliggører Meta (og delvist Google) nogle af de spor annoncerne efterlader. Det indebærer konkret viden om, hvor i landet (på regionsbasis) annoncerne er blevet vist samt hvilke køn og aldersgrupper, der er blevet eksponeret for annoncen. Den information er, hvad du kan finde herunder.
+
+<br>
+
+## Regional
+
+Herunder kan du se og klikke rundt i, hvor i landet partiernes annoncer siden 1. august 2022 er blevet vist. Jo varmere farven er, jo flere annoncevisninger har partiet i regionen. Regionerne er Hovedstaden, Sjælland, Syddanmark, Midtjylland og Nordjylland.
+
+<!-- Man skal være opmærksom på, at partiernes bagvedliggende strategiske prioriteringer kan påvirke billedet. Eksempelvis synes Nye Borgerliges annoncestrategi anderledes end de andre partier, hvorfor denne sides afgrænsning af et parti (partiside + formand) betyder, at region syddanmark synes mere målrettet end de andre, alene af den årsag at Pernille Vermund kun kører hendes annoncer i sønderjylland, hvor hun er opstillet. -->
+
+```{r mapPARTI}
+mapDK
+```
+
+<br>
+
+## Alder
+
+Herunder kan du se i hvor høj grad forskellige aldersgrupper er blevet eksponeret for de forskellige partiers annoncer siden 1. august 2022.
+
+```{r demografiage}
+age_plotly
+```
+
+<br>
+
+## Køn
+
+Herunder kan du se, hvordan annoncevisninger fordeler sig blandt mænd og kvinder for hvert parti for annoncer siden 1. august 2022.
+
+```{r demografigender}
+gender_plotly
+```
+
+<br>
+
+# Valgkampens temaer
+
+Hvad valgkampen handler om spiller en afgørende rolle for, hvordan vælgerne vurderer partierne og hvem der i sidste ende klarer sig bedst. I denne sektion kan du se lidt om, hvilke emner valgkampen handler om, både i det du får vist i annoncer og almindelige Facebook-opslag.
+
+Har du gode idéer til emner, der kunne være interessant at kigge på? Skriv til mig på mhove@sam.sdu.dk
+
+<br>
+
+## Emner i annoncer
+
+Herunder kan du se, hvor mange penge partierne har brugt på annoncer på Metas platforme om forskellige emner siden 1. august. Forbruget er visualiseret akkumuleret pr. dag.
+
+```{r annonceIssue, echo=FALSE}
+issues_day_ads_spend_plotly
+```
+
+<br>
+
+## Emner i Facebook-opslag
+
+Herunder kan du se, hvilke emner, der siden 1. august har fyldt mest i partiernes kommunikation på Facebook. Omtalen er visualiseret akkumuleret pr. dag.
+
+```{r dagensIssue, echo=FALSE}
+issues_day_plotly
+```
+
+<br>
+
+## Emner pr. parti
+
+Herunder kan du se, hvor meget partierne kommunikerer om diverse emner i Facebook-opslag. Facebook-opslag er valgt i denne visualisering, da der for flere af partierne er for få annoncer til meningsfuldt at bryde ned på emne pr. parti uden risiko for betydelig støj.
+
+```{r partiIssue, echo=FALSE}
+issues_party_plotly
+```
+
+<br>
+
+# MF'eres kampagner
+
+I en valgkamp er der ikke kun konkurrence mellem partier. Hver (eller, de fleste) folketingskandidat er i kamp med sine partifæller om, hvem der kan få flest personlige stemmer. Kandidaterne må derfor også enkeltvis ud og overbevise vælgerne om, at de skal sætte krydset *ved netop dem*.
+
+Herunder kan du se to tabeller. Én for forbrug og målretning af annoncer på Metas platforme. Én for, hvilke reaktioner og hvor mange den enkelte kandidat har fået på sine Facebook opslag den seneste uge. Brug søgefunktionerne i hver tabel til at finde det parti eller den kandidat du er interesseret i at vide mere om.
+
+## Annoncer og målretning
+
+I tabellen finder du informationer om, i hvilket omfang den enkelte kandidat annoncerer på Meta's platforme og hvem der eksponeres for deres annoncer. Vær opmærksom på, at kun kandidater som faktisk annoncerer er inkluderet i tabellen. Kandidater som ikke er medlem af Folketinget findes i senere tabel.
+
+```{r MFads, echo=FALSE}
+MF_ads
+```
+
+<br>
+
+## Facebook-opslag og performance
+
+I tabellen finder du informationer om, hvor mange opslag folketingsmedlemmerne har lavet på Facebook i løbet af den seneste uge samt hvor mange interaktioner og reaktioner opslagene i gennemsnit har fået. Derudover er der inkluderet en metrik for performance, der udtrykker *hvor mange gange flere interaktioner opslagene har fået kontra, hvor mange opslagene normalt får*.
+
+Vær opmærksom på, at hvis politikeren ikke fremgår af tabellen, så skyldes det, at den pågældende politiker ikke har lavet nogle Facebook opslag den seneste uge. Ligeledes kan der være mindre forskelle i opgørelsen af antal opslag, da der er et lille lag på, hvornår opslagene er tilgængelige på Crowdtangle.
+
+```{r MFpost, echo=FALSE}
+MF_post
+```
+
+<br>
+
+# Kandidaters kampagner
+
+## Annoncer og målretning
+
+I tabellen finder du informationer om, i hvilket omfang den enkelte kandidat annoncerer på Meta's platforme og hvem der eksponeres for deres annoncer. Vær opmærksom på, at kun kandidater som faktisk annoncerer er inkluderet i tabellen. Kandidater som er medlem af Folketinget findes i tidligere tabel. Kandidatens storkreds er ikke inkluderet i denne tabel og kommer i en senere opdatering. Der kan desuden fremgå personer eller sider, som ikke er kandidater til folketingsvalget, men som alligevel optræder i tabellen. Det kan eksempelvis lokalforeninger, som annoncerer for en kandidat eller andre personer med relation til politik, som annoncerer i perioden selvom de ikke er på valg, som eksempelvis Margrethe Auken.
+
+```{r candidatesads, echo=FALSE}
+Candidates
+```
+
+<br>
+
+# Detaljeret målretning (partier)
+
+Ud over kunne se, hvem der bliver eksponeret for partiernes annoncer oplyser Meta også informationer om, hvilke interesser, lokationer, aldersgrupper og køn der hhv. målrettes. Denne data er dog ikke mulig at få adgang til på individuel annonceniveau, men i stedet baseret på annoncer over en tidsperiode. I de følgende tabeller og visualiseringer gælder det for annoncer kørt den seneste måned.
+
+## Interesser
+
+Interesser kan både inkluderes og ekskluderes i en annonceopsætning, som er med til at sikre at annoncen eksponeres til den rette målgruppe. Hvis interesser inkluderes betyder dette, at vælgeren skal leve op til mindst én af interesserne for at blive eksponeret for annoncen, hvor eksklusion betyder, at en vælger ikke kan blive eksponeret for en annonce, hvis hun lever op til én af interesserne.
+
+```{r interesser, echo=FALSE}
+Interest_table
+```
+
+<br>
+
+## Lokation
+
+Lokationer kan inkluderes og ekskluderes i en annonceopsætning, således at det kun er bestemte områder i landet, som kan se annoncen. På linje med interesser betyder inkluderet, at folk på denne lokation godt må blive eksponeret for annoncen, mens ekskluderet betyder, at annoncen ikke må blive eksponeret på denne lokation.
+
+```{r lokation, echo=FALSE}
+Location_table
+```
+
+<br>
+
+## Alder
+
+Plottet herunder viser procentdelen af partiets annoncer den seneste måned, hvor bestemte aldre må blive eksponeret for annoncen. 0% vil således betyde at alle annoncer er opsat til ikke at blive vist til personer med en given alder, mens 100% vil betyde at alle annoncer gerne må vises til denne aldersgruppe.
+
+```{r aldertargeting, echo=FALSE, warning=FALSE, message=FALSE}
+age_targeting
+```
+
+<br>
+
+# Afgrænsning og metodik
+
+## Indsamling af data
+
+Data kommer fra tre forskellige kilder.
+
+* **Meta Ad Library.** Information om annoncer kørt på Metas platforme.
+* **Google Ad Library.** Information om annoncer kørt på Googles platforme.
+* **Crowdtangle.** Information om Facebook opslag og reaktioner.
+* **Snap Political Ads Library.** Information om annoncer kørt på Snapchat.
+
+<!-- ## Estimation af emner -->
+
+<!-- Emner estimeres på baggrund af en ordbogstilgang, hvor en annonce eller et opslags indhold kategoriseres ud fra, hvorvidt specifikke ord optræder. Indholdet kan imidlertidig godt indeholde flere emner, hvilket tilgangen også vil indfange, hvorfor nogle opslag eller annoncer vil kunne tælle med flere gange. -->
+
+## Afgrænsning
+
+**Partier** afgrænses som hhv. partiets officielle Meta-bruger og partiformandens. Afgrænsningen skyldes to ting. *For det første* inkluderes både partiets officielle side og partiformandens, da der er variation mellem partiernes på, hvordan de anvender sociale medier, men at begge sider må antages at være udtryk for partiets kampagnemæssige strategi. *For det andet* afskæres lokalforeninger, alm. folketingsmedlemmer og kandidater, da partier og partiformænd angiver et mere rent billede af partiets strategi. Eksempelvis kan lokalforeninger, kandidater og selv højtstående folketingsmedlemmer have så dårlig en opsætning af deres annoncer, at inklusion heraf vil bidrage til mere støj end signal.
+
+**Folketingsmedlemmer/MF'ere** afgrænses som nuværende folketingsmedlemmer.
+
+## Forklaring af metrikker
+
+Herunder forklares metrikker i tilfælde af uklarhed.
+
+* **Annonceforbrug** udgør den mængde penge, der er blevet brugt på annoncer på Metas platforme i den afgrænsede periode. Meta oplyser kun et spænd for den enkelte annonce (eks. ml. 0 og 100 kr.), hvor der i denne sammenhæng tages udgangspunkt i et gennemsnit af det afrapporterede spænd. Der vil derfor kunne være forskel på det afrapporterede forbrug her på siden og det faktiske forbrug, hvilket både kan være højere og lavere end hvad fremgår her.
+* **Annoncevisninger** informerer om, i hvor høj grad den pågældende gruppe af vælgere er blevet eksponeret for annoncerne. Det inkluderer hhv. aldersgrupper, køn og regioner. Hver annonce kommer med en angivelse af procent visninger til de specifikke grupper. Er procenten for kvinder eksempelvis 60%, betyder det at 60% af alle annoncevisninger for denne specifikke annonce er dukket op hos kvindelige vælgere. Metrikken annoncevisninger er udregnet ved at tage gennemsnittet af procentfordelingen for hver unik annonce. Med den viden får vi indblik i, hvordan de enkelte partier prøver at målrette en specifik demografisk gruppe. Det er dog vigtigt at have for øje, at metrikken ikke strengt taget er udtryk for *målretning*, da manglende viden om Metas algoritmer gør at det ikke er til at skille ad, hvad der er partiets strategi (og derved målretning) og hvad der er algoritmen, som betinger visninger.
+* **Interaktioner** indeholder information om den samlede mængde kommentarer, likes mm.. Har et opslag således fået 20 likes, 5 kommentarer og 5 angry-reaktioner vil interaktionen for opslaget være 30.
+* **Performance** scoren er en faktor og angiver *hvor mange gange bedre eller dårligere politikeren klarer sig kontra sine forudgående 100 opslag*. Er performance scoren således 5 indebærer dette, at politikeren over den sidste måned har fået 5 gange så mange interaktioner som vedkommende normalt får. Scoren beror på lidt større grad af udregning. Først laves en benchmark ved at se på de seneste 100 opslag fra politikeren inden for den relevante type af opslag (eks. status, billede, video). Herefter fjernes de 25% bedst og dårligst performende opslag, for derefter at udregne det gennemsnitlige antal interaktioner. Dette gennemsnit sammenlignes med det relevante opslag og performance scoren indikerer dermed, hvor mange gange bedre eller dårligere det specifikke opslag har klaret sig sammenlignet med tidligere. Hvis politikeren har lavet flere opslag i løbet af den seneste uge bruges medianen til performance score.
+* **Emner**. Kategoriseringen af, hvilke emner der optræder i opslag og annoncer er sket med baggrund i en såkaldt *ordbogstilgang*. Eksempelvis indgår ordene *økonomi, vækst og offentlige udgifter* som ord der kategoriserer emnet *økonomi*, mens ord som *indvandrer, flygtning og 24-års regel* kategoriserer *udlændingepolitik*. Således kan samme annonce godt indeholde flere emner på samme tid, hvis eksempelvis indvandrere kobles med offentlige udgifter.
